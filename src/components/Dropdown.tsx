@@ -12,18 +12,21 @@ import ArrowIcon from "../assets/icons/arrow_drop_down.svg?react";
 import useQutsideClick from "../hooks/common/useQutsideClick";
 
 interface DropdownProps<T> {
+  defaultValue?: T;  
   placeholder?: string;
   options: DropdownOption<T>[];
   onChange?: (value: T) => void;
 }
 
 export default function Dropdown<T>({
+  defaultValue,
   placeholder,
   options,
   onChange,
 }: PropsWithChildren<DropdownProps<T>>) {
   const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(-1);
+  const [selected, setSelected] = useState(defaultValue ? options.findIndex(option => option.value === defaultValue): -1);
+
 
   const open = useCallback(() => setOpened(true), []);
   const close = useCallback(() => setOpened(false), []);

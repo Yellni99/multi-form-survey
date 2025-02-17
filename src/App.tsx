@@ -1,11 +1,18 @@
 import "./App.css";
 import MainLayout from "./components/MainLayout";
-import Tabs, { Tab, TabList, TabPanel, TabPanels } from "./components/Tabs";
-import QuestionEditor from "./components/edit/QuestionEditor";
+import Tabs, {
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from "./components/Tabs";
+import SectionEditorList from "./components/edit/SectionEditorList";
+import {SurveyStoreProvider} from "./store"; 
 
 function App() {
   return (
     <MainLayout>
+     <SurveyStoreProvider>
       <Tabs>
         <TabList>
           <Tab index={0}>tab1</Tab>
@@ -13,11 +20,12 @@ function App() {
         </TabList>
         <TabPanels>
           <TabPanel index={0}>
-            <QuestionEditor />
-          </TabPanel>
+            <SectionEditorList />
+          </TabPanel> 
           <TabPanel index={1}>Panel2</TabPanel>
         </TabPanels>
       </Tabs>
+      </SurveyStoreProvider>
     </MainLayout>
   );
 }
