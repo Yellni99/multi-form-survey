@@ -7,6 +7,9 @@ const px0_20 = Array.from({ length: 21 }, (_, i) => `${i}px`);
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    screens: {
+      sm: "820px",
+    },
     extend: {
       spacing: {
         ...px0_200,
@@ -19,7 +22,7 @@ export default {
       },
       fontSize: {
         ...px0_200,
-      },    
+      },
       colors,
     },
   },
