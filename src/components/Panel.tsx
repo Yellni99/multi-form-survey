@@ -2,7 +2,6 @@ import { PropsWithChildren } from "react";
 import cn from "classnames";
 
 export default function Panel({ className, children }: PropsWithChildren<Cn>) {
-  /// 추가
   return (
     <div
       className={cn("flex flex-col p-20 pt-26 bg-white rounded-10", className)}
@@ -27,7 +26,7 @@ export function PanelFooter({ className, children }: PropsWithChildren<Cn>) {
   return (
     <>
       <hr className="border-gray100 mb-20" />
-      return <div className={className}>{children}</div>
+      <div className={className}>{children}</div>
     </>
   );
 }
